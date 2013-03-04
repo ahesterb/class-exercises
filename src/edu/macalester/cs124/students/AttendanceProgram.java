@@ -15,6 +15,7 @@ public class AttendanceProgram extends ConsoleProgram {
         name1.first = "James";
         name1.middle = "Paul";
         name1.last = "McCartney";
+        name1.goesByMiddleName = true;
         Student jpm = new Student();
         jpm.name = name1;
 
@@ -22,6 +23,7 @@ public class AttendanceProgram extends ConsoleProgram {
         name2.first = "Hayao";
         name2.middle = "";
         name2.last = "Miyazaki";
+        name2.familyNameFirst = true;
         Student hm = new Student();
         hm.name = name2;
         
@@ -40,15 +42,41 @@ public class AttendanceProgram extends ConsoleProgram {
     }
 
     private void takeAttendance(Student student) {
-        if(readBoolean("Is " + student.name.first + " present (y/n)? ", "y", "n"))
+        String studentName;
+        if(student.name.goesByMiddleName)
+            studentName = student.name.middle;
+        else
+            studentName = student.name.first;
+        
+        if(readBoolean("Is " + studentName + " present (y/n)? ", "y", "n"))
             student.points++;
          student.pointsPossible++;
     }
 
     private void printFinalGrade(Student student) {
-         println(
-             student.name.first + " " + student.name.middle + " " + student.name.last + ": "
-             + student.points + "/" + student.pointsPossible
-             + " = " + (100.0 * student.points / student.pointsPossible));
+        String fullName;
+        if(student.name.familyNameFirst)
+            fullName = student.name.last + " " + student.name.first + " " + student.name.middle;
+        else
+            fullName = student.name.first + " " + student.name.middle + " " + student.name.last;
+        println(
+             fullName + ": " + student.points + "/" + student.pointsPossible + " = " + (100.0 * student.points / student.pointsPossible));
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
