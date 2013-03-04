@@ -4,9 +4,9 @@ import acm.program.ConsoleProgram;
 
 public class AttendanceProgram extends ConsoleProgram {
     public void run() {
-        Student jfk = new Student(new Name("John", "Fitzgerald", "Kennedy"));
-        Student jpm = new Student(new Name("James", "Paul", "McCartney"));
-        Student hm  = new Student(new Name("Hayao", "", "Miyazaki"));
+        Student jfk = new Student(new Name("John", "Fitzgerald", "Kennedy", false, false));
+        Student jpm = new Student(new Name("James", "Paul", "McCartney", true, false));
+        Student hm  = new Student(new Name("Hayao", "", "Miyazaki", false, true));
         
         for(int n = 0; n < 3; n++) {
             println("Day " + n);
