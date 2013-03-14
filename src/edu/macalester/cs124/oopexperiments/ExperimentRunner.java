@@ -4,6 +4,12 @@ import acm.program.ConsoleProgram;
 
 public class ExperimentRunner extends ConsoleProgram {
     public void run() {
+    	runLocalVarExperiment();
+    	runStaticVarExperiment();
+    	//runNullExperiment1();
+    	//runNullExperiment2();
+    	//runNullExperiment3();
+    	runEnumExperiment();
     }
 
     public void runLocalVarExperiment() {
@@ -56,6 +62,6 @@ public class ExperimentRunner extends ConsoleProgram {
     public void runEnumExperiment() {
         CardSuit s = CardSuit.SPADES;
         println(s.name());
-        // Type Òs.Ó right here, and see what Eclipse suggests
+        s.compareTo(CardSuit.SPADES);
     }
 }
